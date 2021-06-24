@@ -9,4 +9,8 @@ allprojects {
     plugins.apply(BuildPlugins.DOKKA)
     plugins.apply(BuildPlugins.KTLINT)
     plugins.apply(BuildPlugins.SPOTLESS)
+
 }
+
+
+

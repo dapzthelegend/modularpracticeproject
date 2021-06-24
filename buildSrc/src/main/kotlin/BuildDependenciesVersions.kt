@@ -7,6 +7,7 @@ object BuildDependenciesVersions {
     const val RECYCLE_VIEW = "1.2.1"
     const val NAVIGATION = "2.3.5"
     const val LIFECYCLE = "2.3.1"
+    const val LIFECYCLE_EXTENSION = "2.2.0"
     const val CORE_KTX = "1.5.0"
     const val FRAGMENT_KTX = "1.3.4"
     const val CONSTRAIN_LAYOUT = "2.0.4"
@@ -20,7 +21,7 @@ object BuildDependenciesVersions {
     const val COIL = "0.13.0"
     const val PLAY_CORE = "1.10.0"
     const val LEAKCANARY = "2.7"
-    const val DATABINDING = "3.5.0"
+    const val DATABINDING = "3.4.0"
 
     // Tests
     const val TEST = "1.3.0"

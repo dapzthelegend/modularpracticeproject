@@ -6,6 +6,7 @@ import extensions.implementation
 import extensions.debugImplementation
 import extensions.kapt
 
+
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.KOTLIN_ANDROID)
@@ -13,7 +14,8 @@ plugins {
     id(BuildPlugins.KOTLIN_KAPT)
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
     id(BuildPlugins.KOTLIN_ALLOPEN)
-
+    id(BuildPlugins.JACOCO)
+    id(BuildPlugins.GRAPH_GENERATOR)
 }
 
 android {
@@ -36,6 +38,7 @@ android {
     buildTypes {
 
         getByName(BuildType.RELEASE){
+            proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
             isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
             isTestCoverageEnabled = BuildTypeRelease.isTestCoverageEnabled
         }
@@ -58,7 +61,11 @@ android {
         ProductFlavorProduction.appCreate(this)
     }
 
-    dynamicFeatures = mutableSetOf()
+    dynamicFeatures = mutableSetOf(
+        BuildModules.HOME,
+        BuildModules.CHARACTERS_LIST,
+        BuildModules.CHARACTERS_FAVORITES
+    )
 
 
     buildFeatures{
@@ -95,11 +102,15 @@ android {
     }
 }
 
+junitJacoco {
+    includeNoLocationClasses = true
+}
 
 
 dependencies {
 
-    implementation (fileTree("libs"))
+    implementation (project(BuildModules.CORE))
+
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
@@ -109,6 +120,7 @@ dependencies {
     implementation(Dependencies.LOGGING)
     implementation(Dependencies.PLAY_CORE)
     implementation(Dependencies.DAGGER)
+
 
     debugImplementation(DebugDependencies.LEAKCANARY)
 
