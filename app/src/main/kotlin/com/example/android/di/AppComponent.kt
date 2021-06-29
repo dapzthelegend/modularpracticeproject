@@ -1,6 +1,7 @@
 package com.example.android.di
 
 import com.example.android.SampleApp
+import com.example.core.di.CoreComponent
 import com.example.core.di.scopes.AppScope
 import dagger.Component
 
@@ -9,7 +10,7 @@ import dagger.Component
  */
 @AppScope
 @Component(
-    dependencies = [],
+    dependencies = [CoreComponent::class],
     modules = [AppModule::class]
 )
 interface AppComponent {
