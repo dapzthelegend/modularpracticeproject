@@ -6,7 +6,7 @@ import androidx.paging.PagingState
 import com.example.characterslist.ui.list.model.CharacterItem
 import com.example.characterslist.ui.list.model.CharacterItemMapper
 import com.example.core.BuildConfig
-import com.example.core.extensions.toMD5
+import com.example.core.extensions.mD5
 import com.example.core.network.NetworkState
 import com.example.core.network.services.MarvelService
 import timber.log.Timber
@@ -95,5 +95,5 @@ class CharactersPageDataSource constructor(
             timestamp,
             API_PRIVATE_KEY,
             API_PUBLIC_KEY
-        ).toMD5()
+        ).mD5()
 }
